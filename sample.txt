@@ -1,0 +1,32 @@
+const categorySchema = new mongoose.Schema({
+    _id : false,
+    cid : { type : Number , required : true , unique : true },
+    category : { type : String , required : true }
+});
+
+const booksSchema = new mongoose.Schema({
+    _id : false,
+    bid : { type : Number , required : true , unique : true },
+    bookname : { type : String , required : true },
+    pages : { type : Number , required : true },
+    author : { type : String , required : true }
+})
+
+const recordsSchema = new mongoose.Schema({
+    _id : false,
+    rid : { type : Number , required : true , unique : true },
+    uid : [userSchema],
+    bid : { type : Number , required : true , unique : true },
+    datetime : { type : String , required : true }
+})
+
+const user = mongoose.model('user' , userSchema);
+const category = mongoose.model('category' , categorySchema);
+const books = mongoose.model('books' , booksSchema);
+const records = mongoose.model('records' , recordsSchema);
+
+
+
+module.exports = category;
+module.exports = books;
+module.exports = records;
