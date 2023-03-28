@@ -90,21 +90,20 @@ const update = (req , res , next) => {
 //Update Book By Id
 
 const isExist = (req , res , next) => {
-//    console.log("Request : ",req);
-    users.find({ email: req.body.email , password: req.body.password} )
+    users.find({ email: req.body.email , password: req.body.password } )
+    
     .then(response => {
         if(response.length > 0){
             res.json({
                 data:true,
-                status:true,
-                message:"Successfully Logged In !"
+                message:"Successfully Logged In !",
+                response
             })
         }else{
             res.json({
                 data:false,
                 status:false,
                 message:"Invalid Credentials !"
-                
             })
         }
     })

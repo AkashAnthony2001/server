@@ -3,21 +3,25 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyparser = require('body-parser')
 const cors = require('cors')
+const dotenv = require('dotenv')
 
 const bookroute = require('./routes/booksRoute.js')
 const categoryroute = require('./routes/categoryRoute.js')
 const recordsroute = require('./routes/recordsRoute.js')
 const userroute = require('./routes/userRoute.js')
 
+dotenv.config()
 
-mongoose.connect('mongodb://127.0.0.1:27017/lms' , {useNewUrlParser: true})
+const URL = process.env.DB_URL
+
+mongoose.connect(URL , {useNewUrlParser: true})
 
 const db = mongoose.connection
 
 db.on('error', (err) =>{
     console.log(err);
 })
-
+    
 db.once('open' , () => {
     console.log('Database Connection Established !');
 })
@@ -30,7 +34,8 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(bodyparser.json())
 app.use(cors())
 
-const PORT = process.env.PORT || 3000 ; 
+
+const PORT = process.env.PORT || 8000 ; 
 
 app.listen(PORT, () =>{
     console.log('Server Running On Port:',PORT);

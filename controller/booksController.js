@@ -39,11 +39,13 @@ const show = (req , res , next) => {
     let newbook = new books({
         bookname: req.body.bookname,
         pages: req.body.pages,
-        author: req.body.author
+        author: req.body.author,
+        image : req.body.image
     });
     newbook.save()
     .then(response => {
         res.json({
+            data:true,
             message:"Book Added Sucessfully"
         })
     })
