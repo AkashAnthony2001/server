@@ -118,9 +118,9 @@ const isExist = (req , res , next) => {
 //Delete Book By Id
 
 const destroy = (req , res , next) => {
-    let userID = req.body.userID;
-
-    users.findByIdAndDelete(userID)
+    let userID = req.params._id;
+console.log(res);
+    users.findByIdAndRemove(userID)
     .then(() => {
         res.json({
             message: "User Deleted !"

@@ -7,7 +7,7 @@ router.get('/' , bookcontroller.index)
 router.get('/show' , bookcontroller.show)
 router.post('/store' , bookcontroller.store)
 router.post('/update' , bookcontroller.update)
-router.post('/delete' ,bookcontroller.destroy)
+router.delete('/delete/:_id' ,bookcontroller.destroy)
 
 
 

@@ -8,7 +8,7 @@ router.get('/show' , usercontroller.show)
 router.post('/isExist' , usercontroller.isExist)
 router.post('/store' , usercontroller.store)
 router.post('/update' , usercontroller.update)
-router.post('/delete' ,usercontroller.destroy)
+router.delete('/delete/:_id' ,usercontroller.destroy)
 
 
 
