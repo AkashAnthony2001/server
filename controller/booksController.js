@@ -40,6 +40,7 @@ const show = (req , res , next) => {
         bookname: req.body.bookname,
         pages: req.body.pages,
         author: req.body.author,
+        category: req.body.category,
         image : req.body.image
     });
     newbook.save()
