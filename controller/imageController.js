@@ -1,6 +1,6 @@
 const image = require('../models/imageModel')
 
-const upload = (req,res,next)=>{
+upload = (req,res,next)=>{
     let newImage = new image({
         name:req.body.name,
         image:{

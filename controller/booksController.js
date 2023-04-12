@@ -1,4 +1,4 @@
-const books = require('../models/booksModel')
+const books = require('../models/booksModel') 
 
 //Showing All Book
 
@@ -40,8 +40,7 @@ const show = (req , res , next) => {
         bookname: req.body.bookname,
         pages: req.body.pages,
         author: req.body.author,
-        category: req.body.category,
-        image : req.body.image
+        category: req.body.category
     });
     newbook.save()
     .then(response => {
@@ -98,6 +97,7 @@ const destroy = (req , res , next) => {
         })
     })
 }
+
 
 
 module.exports = {

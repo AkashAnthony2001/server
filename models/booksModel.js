@@ -6,7 +6,7 @@ const booksSchema = mongoose.Schema({
     pages: { type : Number , required : true },
     author: { type : String , required : true },
     category: { type : String , required : true },
-    image: { type:String }
+    image:{ data:Buffer , contentType : String }
 });
 
 module.exports = mongoose.model('books' , booksSchema);
